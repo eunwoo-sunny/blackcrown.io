@@ -1,0 +1,44 @@
+<%- include('./inc/_header') %>
+    <main>
+      <section class="container px-5 py-24 mx-auto">
+        <header class="flex flex-col text-center w-full mb-12">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">문의 목록</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p>
+        </header> 
+
+        <!-- component -->
+      <!-- Created By Joker Banny -->
+      <div class="flex mt-5 items-center justify-center bg-white px-6 md:px-60">
+        <div class="space-y-6 border-l-2 border-dashed">
+          <% requests.forEach(data => { %>
+          <div class="relative w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="absolute -top-0.5 z-10 -ml-3.5 h-7 w-7 rounded-full text-indigo-500">
+              <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+            </svg>
+            <div class="ml-6">
+              <h4 class="font-bold text-indigo-500"><%= data.name %></h4>
+              <p class="mt-2 max-w-screen-sm text-sm text-gray-500"><%= data.phone %></p>
+              <p class="mt-2 max-w-screen-sm text-sm text-gray-500"><%= data.email %></p>
+              <p class="mt-2 max-w-screen-sm text-sm text-gray-500"><%= data.msg %></p>
+              <span class="mt-1 block text-sm font-semibold text-gray-500"><%= data.updatedAt %></span>
+            </div>
+            <div class="btn-area flex ml-5 gap-2 mt-5">
+              <a href="/request/<%= data._id %>" class="inline-block rounded-full border-2 border-primary px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:border-primary-accent-300 hover:bg-primary-50/50 hover:text-primary-accent-300 focus:border-primary-600 focus:bg-primary-50/50 focus:text-primary-600 focus:outline-none focus:ring-0 active:border-primary-700 active:text-primary-700 motion-reduce:transition-none dark:text-primary-500 dark:hover:bg-indigo-300 dark:focus:bg-indigo-300">수정</a>
+              <form action="/request/<%= data._id %>?_method=DELETE" method="POST">
+                  <button
+                  type="submit"
+                  class="inline-block rounded-full border-2 border-primary px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:border-primary-accent-300 hover:bg-primary-50/50 hover:text-primary-accent-300 focus:border-primary-600 focus:bg-primary-50/50 focus:text-primary-600 focus:outline-none focus:ring-0 active:border-primary-700 active:text-primary-700 motion-reduce:transition-none dark:text-primary-500 dark:hover:bg-indigo-300 dark:focus:bg-indigo-300">
+                  Delete
+              </button>
+              </form>
+          </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+
+      </section>
+
+      
+    </main>
+<%- include('./inc/_footer') %>
