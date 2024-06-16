@@ -2,7 +2,7 @@ const express = require('express');
 const dbConnect = require('./config/dbConnect');
 const methodOverride = require('method-override');
 const app = express(); 
-const port = 3000;
+const port = 1000;
 app.set('view engine','ejs');
 app.set('views','./views');
 dbConnect();
